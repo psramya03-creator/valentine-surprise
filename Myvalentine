@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be My Valentine? 💖</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #adb5bd;
+      color: white;
+      position: absolute;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #ff4d6d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Will you be my Valentine? 💘</h1>
+    <p>You are my today, my tomorrow, and my forever ❤️</p>
+
+    <button id="yesBtn" onclick="yesClicked()">Yes 💕</button>
+    <button id="noBtn" onmouseover="moveNo()">No 💔</button>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const messages = [
+      "Please don’t say no 🥺",
+      "I promise to love you forever 💖",
+      "You’re my favorite human 😘",
+      "My heart already chose you ❤️",
+      "No is not an option, my love 😍"
+    ];
+
+    function moveNo() {
+      const noBtn = document.getElementById("noBtn");
+      const msg = document.getElementById("message");
+
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+
+      msg.innerText = messages[Math.floor(Math.random() * messages.length)];
+    }
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          height:100vh;
+          background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+          font-family:Arial;
+          text-align:center;">
+          <div style="
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+            <h1 style="color:#ff4d6d;">YAY!!! 💖💖💖</h1>
+            <p style="font-size:20px;">
+              I knew you’d say YES 😍<br><br>
+              That's the best decision you’ve ever made! 😘<br><br>
+              Happy Valentine’s Day, my love ❤️<br>
+              Forever yours 💕
+            </p>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
